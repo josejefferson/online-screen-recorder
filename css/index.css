@@ -1,0 +1,15 @@
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.mdi {
+	font-size: 36px;
+}
+
+.actbtn {
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+}

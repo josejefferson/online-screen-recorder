@@ -1,0 +1,17 @@
+{
+	"name": "Gravador de tela online",
+	"short_name": "Gravador de tela",
+	"description": "Gravador de tela online",
+	"icons": [
+		{
+			"src": "icons/icon.png",
+			"type": "image/png",
+			"sizes": "192x192"
+		}
+	],
+	"start_url": "index.html",
+	"scope": ".",
+	"display": "standalone",
+	"background_color": "#ffffff",
+	"theme_color": "#ffffff"
+}
