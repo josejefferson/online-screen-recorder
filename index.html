@@ -5,16 +5,16 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="content-language" content="pt-br">
-	<meta name="description" content="Gravador de tela online">
+	<meta name="description" content="Online Screen Recorder">
 	<meta name="author" content="Jefferson Dantas">
 	<meta name="keywords" content="gravador de tela, screen recorder, online screen recorder">
 	<meta name="google-site-verification" content="g0GemjDttQ5qbIUvSPfISRFX6Z8FVoolN4LCdn4LjfA">
 
 	<!-- Facebook OpenGraph -->
 	<meta name="og:locale" content="pt_BR">
-	<meta name="og:title" content="Gravador de tela online">
+	<meta name="og:title" content="Online Screen Recorder">
 	<meta name="og:site_name" content="GitHub">
-	<meta name="og:description" content="Gravador de tela online">
+	<meta name="og:description" content="Online Screen Recorder">
 	<meta name="og:type" content="website">
 	<meta name="og:url" content="https://josejefferson.github.io/gravador-de-tela-online/">
 	<meta name="og:image" content="https://josejefferson.github.io/gravador-de-tela-online/icons/background.png">
@@ -24,12 +24,12 @@
 
 	<!-- Twitter Cards -->
 	<meta name="twitter:card" content="summary">
-	<meta name="twitter:title" content="Gravador de tela online">
-	<meta name="twitter:description" content="Gravador de tela online">
+	<meta name="twitter:title" content="Online Screen Recorder">
+	<meta name="twitter:description" content="Online Screen Recorder">
 	<meta name="twitter:url" content="https://josejefferson.github.io/gravador-de-tela-online/">
 	<meta name="twitter:image" content="https://josejefferson.github.io/gravador-de-tela-online/icons/background.png">
 
-	<title>Gravador de tela online</title>
+	<title>Online Screen Recorder</title>
 	<link rel="shortcut icon" href="favicon.png" type="image/png">
 	<link rel="manifest" href="manifest.json">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
@@ -42,18 +42,18 @@
 
 	<div class="container my-5">
 
-		<h1 class="mb-5">Gravador de tela online</h1>
+		<h1 class="mb-5">Online Screen Recorder</h1>
 
 		<div class="row mb-3">
 			<div class="col-12 col-md-6 col-lg-3 text-center">
 				<div class="form-group">
-					<label for="vwidth">Largura (px)</label>
+					<label for="vwidth">Width (px)</label>
 					<input type="number" class="form-control text-center" id="vwidth" value="1920">
 				</div>
 			</div>
 			<div class="col-12 col-md-6 col-lg-3 text-center">
 				<div class="form-group">
-					<label for="vheight">Altura (px)</label>
+					<label for="vheight">Height (px)</label>
 					<input type="number" class="form-control text-center" id="vheight" value="1080">
 				</div>
 			</div>
@@ -65,7 +65,7 @@
 			</div>
 			<div class="col-12 col-md-6 col-lg-3 text-center">
 				<div class="form-group">
-					<label for="vdelay">Espera (seg)</label>
+					<label for="vdelay">Wait (sec)</label>
 					<input type="number" class="form-control text-center" id="vdelay" value="0">
 				</div>
 			</div>
@@ -74,13 +74,18 @@
 		<video class="w-100 my-3" id="voutput" autoplay controls></video>
 
 		<div class="text-center mt-3">
-			<button class="btn actbtn rounded-circle mx-3 bg-success text-white" id="vstart"><i
-					class="mdi mdi-camcorder"></i></button>
-			<button class="btn actbtn rounded-circle mx-3 bg-primary text-white" id="vpause"><i
-					class="mdi mdi-pause"></i></button>
-			<button class="btn actbtn rounded-circle mx-3 bg-danger text-white" id="vstop"><i
-					class="mdi mdi-stop"></i></button>
-			<button class="btn actbtn rounded-circle mx-3 bg-warning" id="vdownload"><i class="mdi mdi-download"></i></button>
+			<button class="btn actbtn rounded-circle mx-3 bg-success text-white" id="vstart">
+				<i class="mdi mdi-camcorder" title="Start"></i>
+			</button>
+			<button class="btn actbtn rounded-circle mx-3 bg-primary text-white" id="vpause">
+				<i class="mdi mdi-pause" title="Pause"></i>
+			</button>
+			<button class="btn actbtn rounded-circle mx-3 bg-danger text-white" id="vstop">
+				<i class="mdi mdi-stop" title="Stop"></i>
+			</button>
+			<button class="btn actbtn rounded-circle mx-3 bg-warning" id="vdownload" title="Download">
+				<i class="mdi mdi-download"></i>
+			</button>
 		</div>
 
 		<div class="text-center mt-3 h4" id="vtimer">
@@ -88,7 +93,8 @@
 		</div>
 	</div>
 
-	<script src="https://cdn.jsdelivr.net/npm/easytimer@1.1.1/src/easytimer.min.js"></script>
+	<script src="lib/js/stopwatch.min.js"></script>
+	<script src="lib/js/fix-webm-duration.js"></script>
 	<script src="js/index.js"></script>
 </body>
 

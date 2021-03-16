@@ -25,7 +25,7 @@ vstopEl.onclick = stopCapturing
 vdownloadEl.onclick = downloadRecording
 
 if (!(navigator.mediaDevices && navigator.mediaDevices.getDisplayMedia)) {
-	vtimerEl.innerHTML = 'Seu navegador não suporta gravação!'
+	vtimerEl.innerHTML = 'Your browser does not support screen capture!'
 	vwidthEl.disabled = true
 	vheightEl.disabled = true
 	vframerateEl.disabled = true
@@ -63,14 +63,15 @@ async function startCapturing() {
 			chunks.push(event.data)
 		}
 	})
-	timer = new Timer()
-	timer.start({ countdown: true, startValues: { seconds: parseInt(vdelayEl.value) } })
-	vtimerEl.innerHTML = 'Começando em: ' + timer.getTotalTimeValues().seconds.toString()
-	document.title = `(-${timer.getTotalTimeValues().seconds.toString()}) ${defaultTitle}`
-	timer.addEventListener('secondsUpdated', function () {
-		vtimerEl.innerHTML = 'Começando em: ' + timer.getTotalTimeValues().seconds.toString()
-		document.title = `(-${timer.getTotalTimeValues().seconds.toString()}) ${defaultTitle}`
+	timer = new Stopwatch(null, 1000, false)
+	timer.setElapsed(null, null, parseInt(vdelayEl.value))
+	timer.setListener(timer => {
+		vtimerEl.innerHTML = 'Starting at: ' + timer.toString()
+		document.title = `(-${timer.toString()}) ${defaultTitle}`
 	})
+	timer.start()
+	vtimerEl.innerHTML = 'Starting at: ' + timer.toString()
+	document.title = `(-${timer.toString()}) ${defaultTitle}`
 
 	setTimeout(() => {
 		timer.stop()
@@ -78,14 +79,14 @@ async function startCapturing() {
 		vpauseEl.disabled = false
 		vstopEl.disabled = false
 
-		timer = new Timer()
-		timer.start()
-		vtimerEl.innerHTML = timer.getTimeValues().toString()
-		document.title = `(${timer.getTimeValues().toString()}) ${defaultTitle}`
-		timer.addEventListener('secondsUpdated', function () {
-			vtimerEl.innerHTML = timer.getTimeValues().toString()
-			document.title = `(${timer.getTimeValues().toString()}) ${defaultTitle}`
+		timer = new Stopwatch(null, 1000)
+		timer.setListener(timer => {
+			vtimerEl.innerHTML = timer.toString()
+			document.title = `(${timer.toString()}) ${defaultTitle}`
 		})
+		timer.start()
+		vtimerEl.innerHTML = timer.toString()
+		document.title = `(${timer.toString()}) ${defaultTitle}`
 	}, vdelayEl.value * 1000)
 }
 
@@ -93,16 +94,16 @@ function pauseCapturing() {
 	if (paused) {
 		vpauseEl.children[0].classList.remove('mdi-play')
 		vpauseEl.children[0].classList.add('mdi-pause')
-		document.title = `(${timer.getTimeValues().toString()}) ${defaultTitle}`
+		document.title = `(${timer.toString()}) ${defaultTitle}`
 		mediaRecorder.resume()
 		timer.start()
 		paused = false
 	} else {
 		vpauseEl.children[0].classList.remove('mdi-pause')
 		vpauseEl.children[0].classList.add('mdi-play')
-		document.title = `(⏸ ${timer.getTimeValues().toString()}) ${defaultTitle}`
+		document.title = `(⏸ ${timer.toString()}) ${defaultTitle}`
 		mediaRecorder.pause()
-		timer.pause()
+		timer.stop()
 		paused = true
 	}
 }
@@ -115,19 +116,25 @@ function stopCapturing() {
 	voutputEl.style.display = 'block'
 	timer.stop()
 	document.title = defaultTitle
+	vpauseEl.children[0].classList.remove('mdi-play')
+	vpauseEl.children[0].classList.add('mdi-pause')
+	paused = false
 
 	stream.removeEventListener('inactive', stopCapturing)
 	mediaRecorder.stop()
 	stream.getTracks().forEach(track => track.stop())
-	recording = window.URL.createObjectURL(new Blob(chunks, { type: 'video/webm' }))
-	voutputEl.src = recording
+	const blob = new Blob(chunks, { type: 'video/webm' })
+	ysFixWebmDuration(blob, timer.totalElapsed, blob => {
+		recording = window.URL.createObjectURL(blob)
+		voutputEl.src = recording
+	})
 }
 
 function downloadRecording() {
 	const downloadLink = document.createElement('a')
 	downloadLink.href = recording
 	downloadLink.download = 'screen-recording.webm'
-	downloadLink.style = 'display: none'
+	downloadLink.style.display = 'none'
 	document.body.appendChild(downloadLink)
 	downloadLink.click()
 }
