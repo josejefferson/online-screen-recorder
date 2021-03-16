@@ -1,3 +1,4 @@
-# Gravador de tela online
+# Online Screen Recorder
+Record your computer screen without downloading any programs
 
-* [Clique aqui para iniciar](https://josejefferson.github.io/gravador-de-tela-online/)
+[Clique here to start](https://josejefferson.github.io/online-screen-recorder/)
