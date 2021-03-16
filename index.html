@@ -1,45 +1,47 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en-US">
 
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="content-language" content="pt-br">
-	<meta name="description" content="Online Screen Recorder">
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta http-equiv="content-language" content="en-US">
+
+	<meta name="theme-color" content="#FFFFFF">
+	<meta name="color-scheme" content="light">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<meta name="description" content="Record your computer screen without downloading any programs">
 	<meta name="author" content="Jefferson Dantas">
-	<meta name="keywords" content="gravador de tela, screen recorder, online screen recorder">
+	<meta name="keywords" content="gravador de tela, gravador de tela online, screen recorder, online screen recorder">
+
 	<meta name="google-site-verification" content="g0GemjDttQ5qbIUvSPfISRFX6Z8FVoolN4LCdn4LjfA">
+	<meta name="robots" content="index, nofollow">
 
-	<!-- Facebook OpenGraph -->
 	<meta name="og:locale" content="pt_BR">
+	<meta name="og:site_name" content="Online Screen Recorder">
 	<meta name="og:title" content="Online Screen Recorder">
-	<meta name="og:site_name" content="GitHub">
-	<meta name="og:description" content="Online Screen Recorder">
-	<meta name="og:type" content="website">
-	<meta name="og:url" content="https://josejefferson.github.io/gravador-de-tela-online/">
-	<meta name="og:image" content="https://josejefferson.github.io/gravador-de-tela-online/icons/background.png">
-	<meta name="og:image:type" content="image/png">
-	<meta name="og:image:width" content="1280">
-	<meta name="og:image:height" content="720">
+	<meta name="og:description" content="Record your computer screen without downloading any programs">
+	<meta name="og:url" content="https://josejefferson.github.io/online-screen-recorder/">
+	<meta name="og:image" content="https://josejefferson.github.io/online-screen-recorder/icons/background.png">
 
-	<!-- Twitter Cards -->
-	<meta name="twitter:card" content="summary">
+	<meta name="twitter:card" content="summary_large_image">
 	<meta name="twitter:title" content="Online Screen Recorder">
-	<meta name="twitter:description" content="Online Screen Recorder">
-	<meta name="twitter:url" content="https://josejefferson.github.io/gravador-de-tela-online/">
-	<meta name="twitter:image" content="https://josejefferson.github.io/gravador-de-tela-online/icons/background.png">
+	<meta name="twitter:description" content="Record your computer screen without downloading any programs">
+	<meta name="twitter:url" content="https://josejefferson.github.io/online-screen-recorder/">
+	<meta name="twitter:image" content="https://josejefferson.github.io/online-screen-recorder/icons/background.png">
+
+	<link rel="canonical" href="https://josejefferson.github.io/online-screen-recorder/">
+	<link rel="shortcut icon" href="/favicon.png" type="image/png">
+	<link rel="manifest" href="/manifest.json">
 
 	<title>Online Screen Recorder</title>
-	<link rel="shortcut icon" href="favicon.png" type="image/png">
-	<link rel="manifest" href="manifest.json">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
-	<link rel="stylesheet"
-		href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/3.7.95/css/materialdesignicons.min.css">
+
+	<link rel="stylesheet" href="/lib/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/lib/css/materialdesignicons.min.css">
 	<link rel="stylesheet" href="css/index.css">
 </head>
 
 <body>
-
 	<div class="container my-5">
 
 		<h1 class="mb-5">Online Screen Recorder</h1>
@@ -74,17 +76,17 @@
 		<video class="w-100 my-3" id="voutput" autoplay controls></video>
 
 		<div class="text-center mt-3">
-			<button class="btn actbtn rounded-circle mx-3 bg-success text-white" id="vstart">
-				<i class="mdi mdi-camcorder" title="Start"></i>
+			<button class="btn actbtn rounded-circle mx-3 bg-success text-white" id="vstart" title="Start">
+				<i class="mdi mdi-lg mdi-camcorder"></i>
 			</button>
-			<button class="btn actbtn rounded-circle mx-3 bg-primary text-white" id="vpause">
-				<i class="mdi mdi-pause" title="Pause"></i>
+			<button class="btn actbtn rounded-circle mx-3 bg-primary text-white" id="vpause" title="Pause">
+				<i class="mdi mdi-lg mdi-pause"></i>
 			</button>
-			<button class="btn actbtn rounded-circle mx-3 bg-danger text-white" id="vstop">
-				<i class="mdi mdi-stop" title="Stop"></i>
+			<button class="btn actbtn rounded-circle mx-3 bg-danger text-white" id="vstop" title="Stop">
+				<i class="mdi mdi-lg mdi-stop"></i>
 			</button>
 			<button class="btn actbtn rounded-circle mx-3 bg-warning" id="vdownload" title="Download">
-				<i class="mdi mdi-download"></i>
+				<i class="mdi mdi-lg mdi-content-save"></i>
 			</button>
 		</div>
 

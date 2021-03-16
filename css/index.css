@@ -4,7 +4,7 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
-.mdi {
+.mdi.mdi-lg {
 	font-size: 36px;
 }
 
